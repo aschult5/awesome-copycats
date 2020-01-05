@@ -58,8 +58,6 @@ local function run_once(cmd_arr)
 end
 
 run_once({ -- entries must be separated by commas
-           "urxvtd",
-           "unclutter -root",
            "picom -b",
            "redshift",
            "nmcli con up PfeiferFamilyFarm5 passwd-file /home/aschultz/.secrets/wifi",
