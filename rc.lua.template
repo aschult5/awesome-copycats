@@ -60,6 +60,7 @@ end
 run_once({ -- entries must be separated by commas
            "picom -b",
            "redshift",
+           "albert",
            "nmcli con up PfeiferFamilyFarm5 passwd-file /home/aschultz/.secrets/wifi",
            "setxkbmap -layout 'us' -variant 'dvp'"
         })
@@ -550,7 +551,8 @@ globalkeys = my_table.join(
         {description = "show rofi", group = "launcher"}),
     --]]
     -- Prompt
-    awful.key({ modkey }, "r", function () awful.screen.focused().mypromptbox:run() end,
+    -- awful.key({ modkey }, "r", function () awful.screen.focused().mypromptbox:run() end,
+    awful.key({ modkey }, "r", function () awful.spawn("albert show") end,
               {description = "run prompt", group = "launcher"}),
 
     awful.key({ modkey }, "x",
