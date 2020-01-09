@@ -62,6 +62,7 @@ run_once({ -- entries must be separated by commas
            "redshift",
            "albert",
            "nmcli con up PfeiferFamilyFarm5 passwd-file /home/aschultz/.secrets/wifi",
+           "jupyter notebook -y --no-browser --notebook-dir=/home/aschultz/dev/notebooks",
            "setxkbmap -layout 'us' -variant 'dvp'"
         })
 
