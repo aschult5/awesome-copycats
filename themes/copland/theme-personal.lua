@@ -95,7 +95,7 @@ local green  = "#8FEB8F"
 
 -- Textclock
 --os.setlocale(os.getenv("LANG")) -- to localize the clock
-local mytextclock = wibox.widget.textclock("<span font='Terminus 5'> </span>%H:%M | %a %b %d")
+local mytextclock = wibox.widget.textclock("%H:%M")
 mytextclock.font = theme.font
 
 -- Calendar
@@ -355,10 +355,10 @@ function theme.at_screen_connect(s)
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
             wibox.widget.systray(),
-            small_spr,
-            --theme.mail.widget,
-            mpdicon,
-            theme.mpd.widget,
+            spr,
+            -- theme.mail.widget,
+            -- mpdicon,
+            -- theme.mpd.widget,
             -- baticon,
             -- batwidget,
             -- bar_spr,
@@ -367,8 +367,10 @@ function theme.at_screen_connect(s)
             -- bar_spr,
             volicon,
             volumewidget,
-            bar_spr,
+            -- bar_spr,
+            spr,
             mytextclock,
+            spr
         },
     }
 end
