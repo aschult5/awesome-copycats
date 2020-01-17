@@ -95,14 +95,14 @@ local green  = "#8FEB8F"
 
 -- Textclock
 --os.setlocale(os.getenv("LANG")) -- to localize the clock
-local mytextclock = wibox.widget.textclock("<span font='Terminus 5'> </span>%H:%M ")
+local mytextclock = wibox.widget.textclock("<span font='Terminus 5'> </span>%H:%M | %a %b %d")
 mytextclock.font = theme.font
 
 -- Calendar
 theme.cal = lain.widget.cal({
     attach_to = { mytextclock },
     notification_preset = {
-        font = "Terminus 11",
+        font = "Fira Code 12",
         fg   = theme.fg_normal,
         bg   = theme.bg_normal
     }
@@ -283,6 +283,7 @@ local volumewidget = wibox.container.margin(volumebg, dpi(2), dpi(7), dpi(4), dp
 -- Weather
 theme.weather = lain.widget.weather({
     city_id = 5330222,
+    units = "imperial"
 })
 
 -- Separators
