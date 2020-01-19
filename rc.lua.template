@@ -60,6 +60,7 @@ end
 run_once({ -- entries must be separated by commas
            "picom -b",
            "redshift",
+           "clipit -d",
            "nmcli con up PfeiferFamilyFarm5 passwd-file /home/aschultz/.secrets/wifi",
            "/usr/bin/python3 /home/aschultz/.local/bin/jupyter-notebook -y --no-browser --notebook-dir=/home/aschultz/dev/notebooks",
            "/usr/bin/python3 /home/aschultz/.local/bin/udiskie -t -m nested",
