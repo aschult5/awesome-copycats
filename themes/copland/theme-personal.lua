@@ -154,7 +154,6 @@ theme.mpd = lain.widget.mpd({
 })
 
 -- Battery
---[[
 local baticon = wibox.widget.imagebox(theme.bat)
 local batbar = wibox.widget {
     forced_height    = dpi(1),
@@ -168,6 +167,8 @@ local batbar = wibox.widget {
     widget           = wibox.widget.progressbar,
 }
 local batupd = lain.widget.bat({
+    timeout = 5,
+    full_notify = "off",
     settings = function()
         if (not bat_now.status) or bat_now.status == "N/A" or type(bat_now.perc) ~= "number" then return end
 
@@ -201,7 +202,6 @@ local batupd = lain.widget.bat({
 })
 local batbg = wibox.container.background(batbar, "#474747", gears.shape.rectangle)
 local batwidget = wibox.container.margin(batbg, dpi(2), dpi(7), dpi(4), dpi(4))
---]]
 
 -- /home fs
 --[[ commented because..
@@ -359,9 +359,9 @@ function theme.at_screen_connect(s)
             -- theme.mail.widget,
             -- mpdicon,
             -- theme.mpd.widget,
-            -- baticon,
-            -- batwidget,
-            -- bar_spr,
+            baticon,
+            batwidget,
+            spr,
             -- fsicon,
             -- fswidget,
             -- bar_spr,
