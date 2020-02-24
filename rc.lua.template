@@ -63,8 +63,7 @@ run_once({ -- entries must be separated by commas
            "clipit -d",
            "nmcli con up PfeiferFamilyFarm5 passwd-file /home/aschultz/.secrets/wifi",
            "/usr/bin/python3 /home/aschultz/.local/bin/jupyter-notebook -y --no-browser --notebook-dir=/home/aschultz/dev/notebooks",
-           "/usr/bin/python3 /home/aschultz/.local/bin/udiskie -t -m nested",
-           "setxkbmap -layout 'us' -variant 'dvp'"
+           "/usr/bin/python3 /home/aschultz/.local/bin/udiskie -t -m nested"
         })
 
 -- This function implements the XDG autostart specification
