@@ -252,16 +252,18 @@ local wificon = wibox.widget.imagebox(theme.wifidisc)
 local wifitooltip = awful.tooltip({
     objects = { wificon },
     margin_leftright = dpi(15),
-    margin_topbottom = dpi(15)
+    margin_topbottom = dpi(15),
+    bg = theme.bg_focus,
+    fg = theme.fg_focus,
 })
 wifitooltip.wibox.fg = theme.fg_normal
 wifitooltip.textbox.font = theme.font
 wifitooltip.timeout = 0
 wifitooltip:set_shape(function(cr, width, height)
-    gears.shape.infobubble(cr, width, height, corner_radius, arrow_size, width - dpi(120))
+    gears.shape.infobubble(cr, width, height, corner_radius, arrow_size, width - dpi(0))
 end)
 local mywifisig = awful.widget.watch(
-    { awful.util.shell, "-c", "awk 'NR==3 {printf(\"%d-%.0f\\n\",$2, $3*10/7)}' /proc/net/wireless; iw dev wlan0 link" },
+    { awful.util.shell, "-c", "awk 'NR==3 {printf(\"%d-%.0f\\n\",$2, $3*10/7)}' /proc/net/wireless; iw dev wlp2s0 link" },
     2,
     function(widget, stdout)
         local carrier, perc = stdout:match("(%d)-(%d+)")
