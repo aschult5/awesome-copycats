@@ -276,7 +276,12 @@ wificon:connect_signal("button::press", function() awful.spawn(string.format("%s
 theme.weather = lain.widget.weather({
     city_id = 5330222,
     units = "imperial",
-    notification_preset = { font = "Mono 10" },
+    notification_preset = {
+        fg = "#FFFFFF",
+        bg = theme.bg_normal,
+        position = "top_middle",
+        font = "Mono 10"
+    },
     settings = function()
         units = math.floor(weather_now["main"]["temp"])
         widget:set_markup(" " .. markup.font(theme.font, units .. "°F") .. " ")
@@ -448,16 +453,15 @@ function theme.at_screen_connect(s)
             -- s.mytasklist,
         },
         { -- Middle widgets
-            layout = wibox.layout.flex.horizontal,
-            max_widget_size = 1500,
-            mytextclock
+            layout = wibox.layout.fixed.horizontal,
+            mytextclock,
+            rspace0,
+            theme.weather.icon,
+            theme.weather.widget,
         },
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
             wibox.widget { nil, nil, theme.mpd.widget, layout = wibox.layout.align.horizontal },
-            rspace0,
-            theme.weather.icon,
-            theme.weather.widget,
             rspace0,
             wificon,
             rspace1,
