@@ -129,13 +129,15 @@ local baticon = wibox.widget.imagebox(theme.bat000)
 local battooltip = awful.tooltip({
     objects = { baticon },
     margin_leftright = dpi(15),
-    margin_topbottom = dpi(12)
+    margin_topbottom = dpi(15),
+    bg = theme.bg_focus,
+    fg = theme.fg_focus,
 })
 battooltip.wibox.fg = theme.fg_normal
 battooltip.textbox.font = theme.font
 battooltip.timeout = 0
 battooltip:set_shape(function(cr, width, height)
-    gears.shape.infobubble(cr, width, height, corner_radius, arrow_size, width - dpi(35))
+    gears.shape.infobubble(cr, width, height, corner_radius, arrow_size, width - dpi(0))
 end)
 local bat = lain.widget.bat({
     settings = function()
@@ -161,6 +163,21 @@ local bat = lain.widget.bat({
 
         baticon:set_image(theme[index])
         battooltip:set_markup(string.format("\n%s%%, %s", perc, bat_now.time))
+        bat_notification_charged_preset = {
+            title   = "Battery full",
+            text    = "You can unplug the cable",
+            timeout = 5,
+        }
+        bat_notification_low_preset = {
+            title = "Battery low",
+            text = "Find a power source",
+            timeout = 15,
+        }
+        bat_notification_critical_preset = {
+            title = "Battery exhausted",
+            text = "Shutdown imminent!",
+            timeout = 30,
+        }
     end
 })
 
