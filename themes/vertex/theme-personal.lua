@@ -166,7 +166,7 @@ local bat = lain.widget.bat({
 
 -- MPD
 theme.mpd = lain.widget.mpd({
-    music_dir = "/mnt/storage/Downloads/Music",
+    music_dir = os.getenv("HOME") .. "/music",
     settings = function()
         if mpd_now.state == "play" then
             title = mpd_now.title
