@@ -442,7 +442,7 @@ function theme.at_screen_connect(s)
                            awful.button({}, 3, function () awful.layout.inc(-1) end),
                            awful.button({}, 4, function () awful.layout.inc( 1) end),
                            awful.button({}, 5, function () awful.layout.inc(-1) end)))
-    s.layoutb = wibox.container.margin(s.mylayoutbox, dpi(0), dpi(8), dpi(0), dpi(0))
+    s.layoutb = wibox.container.margin(s.mylayoutbox, dpi(0), dpi(0), dpi(0), dpi(0))
 
     -- Create a taglist widget
     s.mytaglist = awful.widget.taglist(s, awful.widget.taglist.filter.all, awful.util.taglist_buttons, {
@@ -482,15 +482,16 @@ function theme.at_screen_connect(s)
             layout = wibox.layout.fixed.horizontal,
             wibox.widget { nil, nil, theme.mpd.widget, layout = wibox.layout.align.horizontal },
             rspace0,
-            wificon,
-            rspace1,
-            volicon,
-            rspace2,
-            baticon,
-            rspace3,
             wibox.widget.systray(),
-            rspace4,
+            rspace1,
             s.layoutb,
+            rspace2,
+            wificon,
+            rspace3,
+            volicon,
+            rspace4,
+            baticon,
+            rspace0,
         },
     }
 
