@@ -10,6 +10,7 @@ local lain  = require("lain")
 local awful = require("awful")
 local wibox = require("wibox")
 local dpi   = require("beautiful.xresources").apply_dpi
+local layout_indicator = require("keyboard-layout-indicator")
 
 local math, string, tag, tonumber, type, os = math, string, tag, tonumber, type, os
 local my_table = awful.util.table or gears.table -- 4.{0,1} compatibility
@@ -123,6 +124,20 @@ theme.cal = lain.widget.cal({
         font = "Monospace 10"
     }
 })
+
+-- define your layouts
+kbdcfg = layout_indicator({
+    layouts = {
+        {name="dvp",  layout="us",  variant="dvp"},
+        {name="us",  layout="us",  variant=nil}
+    },
+    --[[ optionally, specify commands to be executed after changing layout:
+    post_set_hooks = {
+        "xmodmap ~/.Xmodmap",
+        "setxkbmap -option caps:escape"
+    }--]]
+})
+
 
 -- Battery
 local baticon = wibox.widget.imagebox(theme.bat000)
@@ -481,6 +496,7 @@ function theme.at_screen_connect(s)
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
             wibox.widget { nil, nil, theme.mpd.widget, layout = wibox.layout.align.horizontal },
+            kbdcfg.widget,
             rspace0,
             wibox.widget.systray(),
             rspace1,
