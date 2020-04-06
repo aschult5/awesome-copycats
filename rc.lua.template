@@ -553,7 +553,7 @@ globalkeys = my_table.join(
         {description = "show dmenu", group = "launcher"})
     --]]
     -- Prompt
-    awful.key({ modkey }, "r", function () awful.spawn("rofi -show run -modi run,window -show-icons -sidebar-mode -terminal st") end,
+    awful.key({ modkey }, "r", function () awful.spawn("rofi -show drun -modi drun -show-icons -sidebar-mode -terminal st") end,
               {description = "run prompt", group = "launcher"}),
 
     awful.key({ modkey }, "x",
