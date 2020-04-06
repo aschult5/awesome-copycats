@@ -8,3 +8,6 @@
 [submodule "keyboard-layout-indicator"]
 	path = keyboard-layout-indicator
 	url = https://github.com/deficient/keyboard-layout-indicator.git
+[submodule "awesomewm-screenshot"]
+	path = awesomewm-screenshot
+	url = https://github.com/denisoster/awesomewm-screenshot.git
