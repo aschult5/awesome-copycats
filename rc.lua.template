@@ -105,6 +105,7 @@ local cycle_prev   = true -- cycle trough all previous client or just the first 
 local editor       = os.getenv("EDITOR") or "vim"
 local gui_editor   = os.getenv("GUI_EDITOR") or "gvim"
 local browser      = os.getenv("BROWSER") or "firefox"
+local files        = terminal .. " ranger"
 local scrlocker    = "mylock"
 
 awful.util.terminal = terminal
@@ -539,6 +540,8 @@ globalkeys = my_table.join(
               {description = "run browser", group = "launcher"}),
     awful.key({ modkey }, "a", function () awful.spawn(gui_editor) end,
               {description = "run gui editor", group = "launcher"}),
+    awful.key({ modkey }, "d", function () awful.spawn(files) end,
+              {description = "open file browser", group = "launcher"}),
 
     -- Default
     --[[ Menubar
